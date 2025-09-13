@@ -1,3 +1,15 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://apoli.me/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Polina's Portfolio"
+theme = "hugo-theme-console"
+
+[params]
+  description = "My personal portfolio!"
+
+[[params.navlinks]]
+  name = "Pages"
+  url = "/pages/"
+
+[[params.navlinks]]
+  name = "Projects"
+  url = "/projects/"

@@ -1,0 +1,72 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<style>
+:root {
+    --background-color: #fff;
+    --page-width: 60em;
+    --font-color: #1E1C22;
+    --global-font-color: #1E1C22;
+    --invert-font-color: #fff;
+    --primary-color: #85BAA1;
+    --secondary-color: #498368;
+    --error-color: #d20962;
+    --code-bg-color: #e8eff2;
+}
+
+[data-theme="dark"] {
+    --background-color: #27252D;
+    --page-width: 60em;
+    --font-color: #CEEDDB;
+    --global-font-color: #E1F4E9;
+    --invert-font-color: #222225;
+    --primary-color: #85BAA1;
+    --secondary-color: #498368;
+    --error-color: #df1a44;
+    --code-bg-color: #3f3f44;
+}
+
+[data-theme="light"] {
+    --background-color: #fff;
+    --page-width: 60em;
+    --font-color: #45404F;
+    --global-font-color: #1E1C22;
+    --invert-font-color: #fff;
+    --primary-color: #85BAA1;
+    --secondary-color: #498368;
+    --error-color: #df1a44;
+    --code-bg-color: #e8eff2;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+    transition: background-color 0.3s, color 0.3s;
+    font-family: var(--font-stack);
+    font-size: var(--global-font-size);
+    margin-bottom: 100px;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: var(--global-font-size);
+    font-family: var(--font-stack);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.text-button:hover {
+    background-color: var(--primary-color);
+    color: var(--invert-font-color);
+}
+
+.terminal code {
+    color: var(--primary-color);
+}
+
+.scrollable-table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+</style>

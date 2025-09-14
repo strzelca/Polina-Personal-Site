@@ -13,6 +13,9 @@
     },
     "observability": {
         "enabled": true
+    },
+    "build": {
+        "command": "hugo --gc --minify",
     }
 
 }

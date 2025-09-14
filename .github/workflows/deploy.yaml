@@ -31,4 +31,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy
+          command: pages deploy public --branch main --commit-sha ${{ github.sha }} --message "Deployed via GitHub Actions" --config ./wrangler.jsonc

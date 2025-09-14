@@ -1,0 +1,32 @@
+<div class="footer">
+    <br/><br/>
+    cat $(pwd)/.gitconfig > /dev/stdout <br>
+    [user]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/strzelca">@strzelca</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:a.martiri@studenti.unipi.it">a.martiri@studenti.unipi.it</a><br>
+
+    <br>
+    /usr/bin/sendmail -t &lt;&lt;EOF <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;To: <a href="mailto:work@apoli.me">&lt;work@apoli.me&gt;</a> <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;From: yourmail@example.com <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Subject: Your Question <br>
+    EOF 
+    <br>
+    echo <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC-BY-ND-4.0</a> > /usr/share/site/LICENSE 
+    <br/>
+    echo <a href="https://github.com/strzelca/Polina-Personal-Site">Source Code</a> &>> /dev/stdout
+
+    <br/><br/>
+    <h1>See Also</h1>
+    <a href="https://gohugo.io/">Hugo</a>(8)
+    <a href="https://github.com/mrmierzejewski/hugo-theme-console/">Console Theme</a>(4)
+</div>
+
+<script>
+// set system setting for dark mode
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+} else {
+    document.documentElement.setAttribute('data-theme', 'light');
+}
+</script>

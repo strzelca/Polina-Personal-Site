@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+{{ $cat_jpg := resources.Get "/images/cat.jpg" }}
+
+Hi! I'm Apollinaria, but you can refer to me as Polina, shorter and easier. <br><br>
+
+I'm a (hold your breath), nerd, maniac, obsessed, but no less passionate about a lot of things, 
+software development, networking, tinkering with microcontrollers and... medicine, because after all, 
+even the human body is hardware! <br><br>
+
+I've always been interested about technology, I started programming early, around 10 years old, 
+I touched many languages, C, Java, C#, Visual Basic (so old...). I had many different devices 
+over the years, my first destkop, an extremely old Pentium Pro, but for many years I had a Pentium 4 
+with 256 MB of RAM, a great piece of hardware running Windows 95 and Windows XP. I grew up with Android 
+devices too, I had a old Samsung Note 10.1, a Nexus 7 and as phones I had a Nokia Lumia 535, a Samsung Galaxy S5 
+together with a Nexus 5. I experienced Android modding with them, the first time I installed the CyanogenMod 11 on
+my Galaxy S5 I was 12! Obviously I went in contact with those old Java Phone too. <br><br>
+
+I use Linux since I was 11, but I had my first experience before, with a laptop of a person that I knew, with broken GRUB. 
+Ah yeah, at 12 years old (btw) I used Arch! Now I have a Macbook Air M2 with Fedora Linux as my main system. 
+
+<br><br>
+
+<div style="display: flex; align-items: top; gap: 20px; margin-top: 20px;">
+  <img src="{{ $cat_jpg.RelPermalink }}" alt="My cat" style="max-width: 150px; border-radius: 3px;">
+  <p style="text-align: justify; width: 40%">
+    Now a picture of my cat :3 !!! <br>
+    He has been with me all these years,
+    since I was 6 years old.
+    I think that without him I wouldn't be here,
+    certainly not in the same way. <br> <br>
+    
+    ❤️
+  </p>
+</div>
+{{ end }}

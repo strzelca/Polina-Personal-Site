@@ -1,7 +1,7 @@
 baseURL = 'https://apoli.me/'
-languageCode = 'en-us'
 title = "Polina's Portfolio"
 theme = "hugo-theme-console"
+animateStyle = "animate-fade-up" # Animation style for content
 
 [params]
   description = "My personal portfolio!"

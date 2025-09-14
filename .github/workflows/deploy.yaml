@@ -19,13 +19,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Install Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.142.0'
-          extended: true
-      - run: hugo --gc --minify
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

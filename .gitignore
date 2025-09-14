@@ -17,6 +17,7 @@ hugo.linux
 # Generated files by npm
 /node_modules/
 package-lock.json
+package.json
 
 ### IDE ###
 # VSCode settings

@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Workers
 on:
   push:
       branches:
@@ -7,29 +7,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
       deployments: write
       statuses: write
 
     steps:
-      - name: Checkout repository and update Hugo themes
-        uses: actions/checkout@v2
+      - name: Checkout repository and Themes
+        uses: actions/checkout@v5
         with:
           submodules: true
-          fetch-depth: 0
 
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.142.0'
           extended: true
-          
-      - run: hugo --minify
+      - run: hugo --gc --minify
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=polina-portfolio --branch main
+          environment: production

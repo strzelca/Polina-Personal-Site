@@ -2,20 +2,15 @@
     "name": "polina-portfolio",
     "compatibility_date": "2025-09-14",
     "workers_dev": false,
-    "env": {
-        "production": {
-            "name": "Production",
-            "routes": [
-                {
-                    "pattern": "apoli.me/*",
-                    "custom_domain": true
-                }
-            ],
-            "assets": {
-                "directory": "./public/",
-                "not_found_handling": "404-page",
-                "html_handling": "auto-trailing-slash"
-            }
+    "routes": [
+        {
+            "pattern": "apoli.me/*",
+            "custom_domain": true
         }
+    ],
+    "assets": {
+    "directory": "./public/",
+        "not_found_handling": "404-page",
+        "html_handling": "auto-trailing-slash"
     }
 }

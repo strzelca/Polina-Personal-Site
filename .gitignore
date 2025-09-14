@@ -12,3 +12,16 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+### Node ###
+# Generated files by npm
+/node_modules/
+package-lock.json
+
+### IDE ###
+# VSCode settings
+.vscode/
+
+### Wrangler ###
+# Generated files by wrangler
+/.wrangler/

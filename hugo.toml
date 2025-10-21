@@ -3,6 +3,37 @@ title = "Polina's Portfolio"
 theme = "hugo-theme-console"
 animateStyle = "animate-fade-up" # Animation style for content
 
+ignoreLogs = ['warning-goldmark-raw-html']
+defaultMarkdownHandler = "pandoc"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.renderHooks.image]
+      enableDefault = true
+    [markup.goldmark.renderHooks.link]
+      enableDefault = true
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+   [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\$', '\$']]
+  [markup.pandoc]
+    extraArgs = ["--katex"]
+    [markup.pandoc.extensions]
+      latex_math = true
+
+[security]
+  [security.exec]
+    allow = 'pandoc'
+
 [params]
   description = "My personal portfolio!"
 

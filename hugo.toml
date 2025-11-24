@@ -11,9 +11,9 @@ defaultMarkdownHandler = "pandoc"
     [markup.goldmark.renderer]
       unsafe = true
     [markup.goldmark.renderHooks.image]
-      enableDefault = true
+      useEmbedded = "fallback"
     [markup.goldmark.renderHooks.link]
-      enableDefault = true
+      useEmbedded = "fallback"
     [markup.goldmark.parser]
       wrapStandAloneImageWithinParagraph = false
       [markup.goldmark.parser.attribute]

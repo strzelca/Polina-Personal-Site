@@ -7,7 +7,7 @@ I hate UEFI and Secure Boot so much, that I deployed it on my **Macbook Air M2**
 
 <!--more-->
 
-This wasn't simple, U-Boot documentation it's hard to understand (same argument spread across different pages), or lacks of necessary information.
+This wasn't simple, U-Boot documentation is hard to understand (same argument spread across different pages), or lacks of necessary information.
 
 Before talking about the steps, we must know how Linux is (or can be, because there are also FIT images) booted on Apple Silicon (and similar in other embedded platforms).
 
@@ -63,7 +63,7 @@ enum efi_auth_var_type {
 	EFI_AUTH_VAR_DBR,
 };
 ```
-so probably, the Secure Boot variables are handled differently, we know that when UEFI Secure Boot is in **SetupMode**, there isn't a a PK, so we can deploy our own key, after that, PK is configured and SetupMode disabled, now all the other keys must be signed with the PK, or, if we deploy a KEK signed with the private PK, _db,dbx,dbt,dbr_ can be signed with the KEK too.
+so probably, the Secure Boot variables are handled differently, we know that when UEFI Secure Boot is in **SetupMode**, there isn't a PK, so we can deploy our own key, after that, PK is configured and SetupMode disabled, now all the other keys must be signed with the PK, or, if we deploy a KEK signed with the private PK, _db,dbx,dbt,dbr_ can be signed with the KEK too.
 
 My ESP is `nvme 0:4`, your can be different. Commands are the same for the other variables.
 
@@ -80,7 +80,7 @@ Yes. but, on this platform we can save EFI Variables only as a **file** on a **F
 
 But why? If we check the `ESP/bootefi.var`, we can see that the EFI var with the keys are actually configured, so why are variables about the boot entries (`BootXXXX`) and order restored from the file, but Secure Boot related no?
 
-This is not documented too, but searching in the source code, the routine that restores the variables from the file is `lib/efi/efi_var_file.c:99 -> efi_status_t efi_var_restore(struct efi_var_file *buf, ...)`, there is a check:
+This is not documented too, but searching in the source code, the routine that restores the variables from the file is `lib/efi_loader/efi_var_file.c:99 -> efi_status_t efi_var_restore(struct efi_var_file *buf, ...)`, there is a check:
 
 ```C
 if (!safe &&

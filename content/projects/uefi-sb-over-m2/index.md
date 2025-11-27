@@ -17,7 +17,7 @@ Before talking about the steps, we must know how Linux is (or can be, because th
 
 Apple Silicon executes **Boot ROM** (always trusted, I already wrote about the [root of trust](/pages/00-introduction)), that validates and loads the **LLB** (_Low Level Bootloader_), the LLB validates firmware signatures, _LocalPolicy_ (together with **SEP**), verifies and loads **iBoot2**.
 
-From **iBoot2** we can manipulate the boot flow, iBoot2 loads **m1n1** (whose integrity is not verified), **m1n1 1st stage** initializes hardware and loads a payload that can be _DTBs_, _initcpio_ images, or a proper _Linux kernel_ as _aarch64 boot image_. If we don't boot Linux from the 1st stage, m1n1 loads it's **2nd stage** from the _ESP_ (_EFI System Partition_), the 2nd stage can load blobs like the 1st stage, DTBs and **U-Boot**. 
+From **iBoot2** we can manipulate the boot flow, iBoot2 loads **m1n1**, **m1n1 1st stage** is verified by iBoot2, using the signed _LocalPolicy_ (that can't be changed without user password prompt), initializes hardware and loads a payload that can be _DTBs_, _initcpio_ images, or a proper _Linux kernel_ as _aarch64 boot image_. If we don't boot Linux from the 1st stage, m1n1 loads it's **2nd stage** from the _ESP_ (_EFI System Partition_), the 2nd stage can load blobs like the 1st stage, DTBs and **U-Boot**. 
 
 The **m1n1 2nd stage** is preferable, because the 1st stage requires to reboot in a MacOS environment and execute the Asahi installer to update the binary, reboot in **1TR** (_RecoveryOS_) and reconfigure boot for the new m1n1 1st stage. With a 2nd stage we can update the 1st stage only if needed, and update easily the 2nd stage from the ESP directly from Linux.
 

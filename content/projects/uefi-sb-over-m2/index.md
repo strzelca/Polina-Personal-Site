@@ -11,6 +11,10 @@ This wasn't simple, U-Boot documentation is hard to understand (same argument sp
 
 Before talking about the steps, we must know how Linux is (or can be, because there are also FIT images) booted on Apple Silicon (and similar in other embedded platforms).
 
+<p style="text-align: center;">
+    <img src="/projects/uefi-sb-over-m2/images/untrusted-hlos.svg" alt="Apple Silicon Boot" style="width: 600px;">
+</p>
+
 Apple Silicon executes **Boot ROM** (always trusted, I already wrote about the [root of trust](/pages/00-introduction)), that validates and loads the **LLB** (_Low Level Bootloader_), the LLB validates firmware signatures, _LocalPolicy_ (together with **SEP**), verifies and loads **iBoot2**.
 
 From **iBoot2** we can manipulate the boot flow, iBoot2 loads **m1n1** (whose integrity is not verified), **m1n1 1st stage** initializes hardware and loads a payload that can be _DTBs_, _initcpio_ images, or a proper _Linux kernel_ as _aarch64 boot image_. If we don't boot Linux from the 1st stage, m1n1 loads it's **2nd stage** from the _ESP_ (_EFI System Partition_), the 2nd stage can load blobs like the 1st stage, DTBs and **U-Boot**. 
@@ -20,6 +24,10 @@ The **m1n1 2nd stage** is preferable, because the 1st stage requires to reboot i
 Now that we loaded **U-Boot** from m1n1 2nd stage, we can boot Linux in many ways, loading the kernel, DTBs and initcpio manually, building a FIT image (not supported by the U-Boot build from Asahi), or a **PE EFI Stub** containing all the required blobs.
 
 I'm using a custom U-Boot build with **UEFI Secure Boot** and FIT Image support, loading systemd-boot and an EFI stub with Linux+initcpio+dtbs. Everything from U-Boot is signed with my own keys _PK, KEK_ and _db_, and because it's funny, I put Microsoft UEFI keys in dbx (for more info about how UEFI Secure Boot works and key variables [I made an article about this](/pages/03-uefi_sb)).
+
+<p style="text-align: center;">
+    <img src="/projects/uefi-sb-over-m2/images/verified-boot-hlos.svg" alt="UEFI Secure Boot on Apple Silicon" style="width: 600px;">
+</p>
 
 To enable **UEFI Secure Boot** on the U-Boot from Asahi repo, we should change some settings with `make menuconfig`
 

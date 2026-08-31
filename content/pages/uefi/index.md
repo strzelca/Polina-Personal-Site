@@ -17,7 +17,7 @@ You have many firmware vendors, AMI Aptio, InsydeH20, HP UEFI, Lenovo UEFI, etc.
 
 ### UEFI Secure (for them) Boot
 
-UEFI Secure Boot is a feature to enstablish a root of trust between the vendor's firmware and the operating system. It would be great if only it weren't just a tool for the big corps (and their gov friends, expecially two, one is an acronym of three letters, the other is a country in the middle east, that starts with I, and whose hobby is to threaten and bomb neighbouring countries because it was promised them 4,000 years ago) to increase their control over the platform.
+UEFI Secure Boot is a feature to enstablish a root of trust between the vendor's firmware and the operating system. It would be great if only it weren't just a tool for the big corps (and their gov friends) to increase their control over the platform.
 
 If UEFI Secure Boot exist to protect the user from running untrusted executables, why are OpROMs signed with Microsoft's db key and in many platforms you can't boot your system without Microsoft keys? It's because it's secure for them, not for you, you think it's secure because you can enroll you keys, but you can't without Microsoft's too. There are workarounds, like extracting the OpROM from the external (usually a PCIe card) and enroll the hash, but you can't sign it with your keys and OEMs can't let you do this, or they'll lose the Microsoft WHQL certification for their drivers.
 

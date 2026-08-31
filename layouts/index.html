@@ -1,12 +1,18 @@
 {{ define "main" }}
 
 {{ $cat_jpg := resources.Get "/images/cat.jpg" }}
+{{ $propic_jpg := resources.Get "/images/propic.jpg"}}
 
-Hi! I'm Apollinaria, but you can refer to me as Polina, shorter and easier. <br><br>
+<div style="display: flex; align-items: center; gap: 32px; margin-top: 20px;">
+<img src="{{ $propic_jpg.RelPermalink }}" alt="Propic" style="max-width: 250px; border-radius: 100%; outline: 8px solid #c9e7d5;">
+<div>Hi! I'm Apollinaria, but you can refer to me as Polina, shorter and easier. <br><br>
 
-I'm a (hold your breath), nerd, maniac, obsessed, but no less passionate about a lot of things, 
-software development, networking, tinkering with microcontrollers and... medicine, because after all, 
-even the human body is hardware! <br><br>
+I'm a (hold your breath), nerd, maniac, obsessed, but no less passionate about a lot of things,
+software development, networking, tinkering with microcontrollers and... medicine, because after all,
+even the human body is hardware!
+</div>
+</div>
+<br><br>
 
 I've always been interested about technology, I started programming early, around 10 years old, 
 I touched languages like C and Java. I had many different devices
